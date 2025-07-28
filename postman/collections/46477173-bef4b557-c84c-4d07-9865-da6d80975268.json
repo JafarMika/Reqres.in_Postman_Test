@@ -273,10 +273,15 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "da098e8c-de10-4696-8853-334d652bbdad",
+						"id": "dbed81f4-95a8-4f66-b226-9689e9c1126e",
 						"exec": [
 							"pm.test(\"Status code is 401\", function () {\r",
 							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"pm.test(\"Response body contains error message\", function () {\r",
+							"    var responseJSON = pm.response.json();\r",
+							"    pm.expect(responseJSON).to.have.property('error').that.is.a('string');\r",
+							"    pm.expect(responseJSON.error).to.equal('Missing API key.');\r",
 							"});"
 						],
 						"type": "text/javascript",
