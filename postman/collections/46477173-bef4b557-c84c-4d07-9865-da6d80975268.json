@@ -44,6 +44,21 @@
 		},
 		{
 			"name": "getAllUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebaceb1d-87df-4ab6-9901-4c7a67c71ba0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"id": "46477173-288c634e-f804-4bad-bc16-9e63b346b364",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -54,7 +69,8 @@
 					{
 						"key": "x-api-key",
 						"value": "{{x-api-key}}",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"url": {
